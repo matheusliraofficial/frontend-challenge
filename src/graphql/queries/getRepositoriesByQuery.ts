@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const GET_REPOSITORIES_BY_QUERY = gql`
   query GetRepositoriesByQuery($searchTerm: String!) {

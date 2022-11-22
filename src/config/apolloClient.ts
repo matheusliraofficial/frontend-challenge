@@ -1,4 +1,9 @@
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  ApolloLink,
+} from '@apollo/client';
 
 const httpLink = new HttpLink({ uri: import.meta.env.VITE_GITHUB_API });
 
@@ -10,7 +15,7 @@ const authLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       authorization: `Bearer ${token}`,
-    }
+    },
   });
 
   // Call the next link in the middleware chain.

@@ -1,4 +1,4 @@
-import Table from "./Table";
+import Table from './Table';
 
-export * from "./Table.types";
+export * from './Table.types';
 export default Table;

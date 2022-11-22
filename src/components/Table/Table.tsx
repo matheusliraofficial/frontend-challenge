@@ -1,9 +1,10 @@
-import { DataGrid } from "@mui/x-data-grid";
-import { Box, Stack, LinearProgress } from "@mui/material";
-import { TableProps } from "./Table.types";
+import { Box, Stack, LinearProgress } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
 
-const Table = ({ rows, columns, loading}: TableProps) => (
-  <Box sx={{ height: 400, width: "100%" }}>
+import { TableProps } from './Table.types';
+
+const Table = ({ rows, columns, loading }: TableProps) => (
+  <Box sx={{ height: 400, width: '100%' }}>
     <DataGrid
       rows={rows}
       columns={columns}

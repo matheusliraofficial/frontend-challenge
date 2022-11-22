@@ -24,6 +24,12 @@ yarn dev
 yarn build
 ```
 
+### Run the lint process
+
+```
+yarn lint
+```
+
 ### Customize configuration
 
 See [Configuration Reference](https://vitejs.dev/config/).
