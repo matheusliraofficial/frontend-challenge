@@ -1,5 +1,5 @@
 import { StyledPaper, StyledInputBase } from './Search.styles';
-import { SearchProps } from './Search.types';
+import type { SearchProps } from './Search.types';
 
 const Search = ({ onChange, value }: SearchProps) => (
   <StyledPaper>

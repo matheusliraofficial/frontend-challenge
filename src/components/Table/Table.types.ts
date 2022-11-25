@@ -13,7 +13,7 @@ export interface TableProps<R extends GridValidRowModel = any> {
   columns: GridColDef[];
 
   /**
-   * Controls wether the Button is on loading state or not.
+   * Controls if is on loading state or not.
    */
   loading: boolean;
 }

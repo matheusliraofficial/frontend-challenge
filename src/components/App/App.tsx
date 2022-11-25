@@ -4,23 +4,25 @@ import { useLazyQuery } from '@apollo/client';
 import { Box } from '@mui/material';
 import { GridColDef } from '@mui/x-data-grid';
 
-import { GET_REPOSITORIES_BY_QUERY } from '../../graphql/queries/getRepositoriesByQuery';
+import {
+  GET_REPOSITORIES_BY_QUERY,
+  RepositoriesQuery,
+} from '../../graphql/queries/getRepositoriesByQuery';
 import { useDebounce } from '../../hooks/useDebounce';
 import Search from '../Search';
 import Table from '../Table';
 import { columns } from './App.constants';
+import type { Results } from './App.types';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<Results>([]);
   const debouncedSearchTerm = useDebounce(searchTerm);
 
-  const [searchRepositories, { loading, error, data }] = useLazyQuery(
-    GET_REPOSITORIES_BY_QUERY,
-    {
+  const [searchRepositories, { loading, error, data }] =
+    useLazyQuery<RepositoriesQuery>(GET_REPOSITORIES_BY_QUERY, {
       variables: { searchTerm: debouncedSearchTerm },
-    },
-  );
+    });
 
   useEffect(() => {
     if (!debouncedSearchTerm) {
@@ -31,9 +33,7 @@ const App = () => {
     searchRepositories();
     if (data) {
       setSearchResults(
-        // TODO - add type for data
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data.search.edges.map(({ node }: any) => ({
+        data.search.edges.map(({ node }) => ({
           ...node,
           owner: node.owner.login,
         })),

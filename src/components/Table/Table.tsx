@@ -1,7 +1,7 @@
 import { Box, Stack, LinearProgress } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { TableProps } from './Table.types';
+import type { TableProps } from './Table.types';
 
 const Table = ({ rows, columns, loading }: TableProps) => (
   <Box sx={{ height: 400, width: '100%' }}>
