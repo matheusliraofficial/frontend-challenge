@@ -1,11 +1,10 @@
 import { GridColDef, GridRowsProp, GridValidRowModel } from '@mui/x-data-grid';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface TableProps<R extends GridValidRowModel = any> {
+export interface TableProps<RowType extends GridValidRowModel> {
   /**
    * Set the rows of the Table.
    */
-  rows: GridRowsProp<R>;
+  rows: GridRowsProp<RowType>;
 
   /**
    * Set the columns of the Table.
