@@ -62,7 +62,7 @@ const App = () => {
   if (error) return <>`Error: ${error.message}`</>;
 
   return (
-    <Box sx={{ maxWidth: '1024px', margin: 'auto' }}>
+    <Box sx={{ maxWidth: '1024px', margin: 'auto' }} data-testid="app">
       <Search onChange={handleChange} value={searchTerm} />
       <Table rows={searchResults} columns={parsedColumns} loading={loading} />
     </Box>
